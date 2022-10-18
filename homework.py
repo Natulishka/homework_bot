@@ -81,9 +81,7 @@ def check_response(response):
 
 
 def parse_status(homework):
-    """Извлекает из информации о конкретной домашней работе статус этой
-    работы.
-    """
+    """Извлекает из конкретной домашней работы статус этой работы."""
     if "homework_name" not in homework or "status" not in homework:
         message = "В словаре homework не найден ключ homework_name"
         raise exceptions.ExceptionKeyError(message)
@@ -101,9 +99,7 @@ def parse_status(homework):
 
 
 def check_tokens():
-    """Проверяет доступность переменных окружения, которые необходимы для
-    работы программы.
-    """
+    """Проверяет доступность переменных окружения."""
     return all([TELEGRAM_TOKEN, PRACTICUM_TOKEN, TELEGRAM_CHAT_ID])
 
 
