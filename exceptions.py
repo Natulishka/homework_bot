@@ -1,28 +1,23 @@
-class ExceptionNotEnoughtVariablesError(Exception):
-    """Класс исключения при отсутсвии переменных окружения,
-    которые необходимы для работы программы.
-    """
-
-    def __init__(self, message):
-        self.message = message
+class Error(Exception):
+    """Базовый класс для исключений, которые не нужно отправлять в Telegram"""
 
 
-class ExceptionSendMessageError(Exception):
+class ExceptionSendMessageError(Error):
     """Класс исключения при сбое отправки сообщения."""
 
     def __init__(self, message):
         self.message = message
 
 
-class ExceptionTypeError(TypeError):
-    """Класс исключения при не корректном типе объекта."""
+class ExceptionStatusError(Exception):
+    """Класс исключения при не корректном статусе ответа."""
 
     def __init__(self, message):
         self.message = message
 
 
-class ExceptionKeyError(KeyError):
-    """Класс исключения при несуществующем ключе."""
+class ExceptionGetAPYError(Exception):
+    """Класс исключения при ошибке запроса к API."""
 
     def __init__(self, message):
         self.message = message
