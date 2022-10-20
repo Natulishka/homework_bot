@@ -74,7 +74,8 @@ def get_api_answer(current_timestamp):
             raise ExceptionStatusError(message)
     except Exception as error:
         raise ExceptionGetAPYError(
-            f"Cбой при запросе к энпоинту '{ENDPOINT}'. "
+            f"Cбой при запросе к энпоинту '{ENDPOINT}' API-сервиса с "
+            f"параметрами {requests_params}."
             f"Error: {error}")
     return response.json()
 
@@ -101,7 +102,7 @@ def check_response(response):
 
 def parse_status(homework):
     """Извлекает из конкретной домашней работы статус этой работы."""
-    logger.info("Извлечение из конкретной домашней работы статус этой работы")
+    logger.info("Извлечение из конкретной домашней работы статуса этой работы")
     if "homework_name" not in homework:
         message = "В словаре homework не найден ключ homework_name"
         raise KeyError(message)
@@ -131,7 +132,7 @@ def main():
                    "необходимы для работы программы: "
                    "PRACTICUM_TOKEN, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID")
         logger.critical(message)
-        raise SystemExit(message)
+        sys.exit(message)
 
     bot = Bot(token=TELEGRAM_TOKEN)
     current_timestamp = int(time.time())
