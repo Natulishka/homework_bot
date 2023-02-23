@@ -8,9 +8,9 @@
 ### Стек технологий:  
 
 
-Python 3.9  
-python-dotenv 0.19.0  
-python-telegram-bot 13.7  
+Python 3.7  
+python-dotenv==0.19.0
+python-telegram-bot==13.7 
 
 
 
